@@ -10,6 +10,6 @@ import { MenuPage } from './menu.page';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, MenuPageRoutingModule],
-  declarations: [],
+  declarations: [MenuPage],
 })
 export class MenuPageModule {}
