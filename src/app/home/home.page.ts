@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  public image: string =
+    'https://media.premiumtimesng.com/wp-content/files/2022/02/Dbanj.jpg';
   constructor() {}
-
 }
