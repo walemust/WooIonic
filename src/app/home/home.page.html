@@ -13,16 +13,22 @@
         *ngFor="let image of ['african-food-image', 'african-image', 'juan-marin-CjDuFaoVQD8-unsplash','writeup']">
         <img src="../../assets/images/{{image}}.jpg" alt="placeholder">
       </ion-slide>
-      <!-- <ion-slide>
-        <img src="https://media.premiumtimesng.com/wp-content/files/2022/02/Dbanj.jpg" alt="placeholder">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://media.premiumtimesng.com/wp-content/files/2022/02/Dbanj.jpg" alt="placeholder">
-      </ion-slide>
-      <ion-slide>
-        <img src="https://media.premiumtimesng.com/wp-content/files/2022/02/Dbanj.jpg" alt="placeholder">
-      </ion-slide> -->
     </ion-slides>
-
   </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-slides autoplay="3000">
+        <ion-slide *ngFor="let product of products">
+          <ion-card no-padding>
+            <img [src]="product.image" alt="">
+            <h1>{{ product.title }}</h1>
+            <p>{{ product.price }}</p>
+            <p>{{ product.category }}</p>
+            <p>{{ product.description }}</p>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </ion-grid>
 </ion-content>

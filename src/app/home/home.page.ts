@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Product } from '../product';
 
 //import * as WC from 'woocommerce-api';
+import { RemoteServiceService } from './../remote-service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +11,22 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
   WooCommerce: any;
-  product: any[];
+  products: Product[] = [];
 
   public image: string =
     'https://media.premiumtimesng.com/wp-content/files/2022/02/Dbanj.jpg';
-  constructor() {
-    this.WooCommerce = WC({
-      url: 'https://fakestoreapi.com/products',
-    });
+  constructor(private remoteService: RemoteServiceService) {
+    this.remoteService.getAllProducts();
+  }
 
-    this.WooCommerce
+  ngOnInit(): void {
+    this.remoteService.getAllProducts().subscribe({
+      next: (products) => {
+        this.products = products;
+      },
+      error: (response) => {
+        console.log(response);
+      },
+    });
   }
 }
